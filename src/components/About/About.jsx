@@ -1,7 +1,7 @@
 // src/components/About/About.js
 import React from 'react';
 import './About.css';
-import profilePic from '../../assets/mine.jpg'; // <-- Add a professional photo to src/assets
+import profilePic from '../../assets/mine.JPG'; // <-- Add a professional photo to src/assets
 
 const About = () => {
   return (
