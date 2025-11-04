@@ -2,11 +2,12 @@
 import React from 'react';
 import './Experience.css'; // Uses the same CSS file
 
-const ProjectCard = ({ title, description, technologies, image }) => {
+const ProjectCard = ({ title, description, technologies, image,link }) => {
   return (
     <div className="project-card">
-      <img src={image} alt={title} className="project-image" />
-      <div className="project-image-placeholder"></div>
+      <div className={`project-image-placeholder ${link ? 'clickable' : ''}`}
+        onClick={() => link && window.open(link, '_blank', 'noopener noreferrer')}><img src={image} alt={title} className="project-image" />
+</div>
       
       <div className="project-content">
         <h4 className="project-title">{title}</h4>

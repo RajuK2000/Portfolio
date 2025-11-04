@@ -1,40 +1,162 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ProjectCard from './ProjectCard'; // We will create this
 import './Experience.css';
+import Oraddo from "../../assets/projects/oraddoLogin.jpg"
+import VSDL from "../../assets/projects/VSDL.png"
+import SapinceMinds from "../../assets/projects/SapinceMinds.png"
 
 // --- THIS IS YOUR DATA ---
 // Update this array with your actual project details.
-const projectsData = [
+// const projectsData = [
+// {id: 1,
+//     categoryTitle: 'SaaS & Application Development',
+//     projects: [
+//   {
+//   id: 1,
+//   "title": "Oraddo (SaaS Base Application)",
+//   "company": "TriDizi Digital Innovations LLP",
+//   "description": "A SaaS-based application for managing employee attendance (punch-in/punch-out), salaries, leaves, company financials, and project management established based on user roles.",
+//   "technologies": [
+//     "React",
+//     "Context API",
+//     "Node.js",
+//     "Express",
+//     "PostgreSQL"
+//   ],
+//   "image": Oraddo
+// },
+//   {
+//     id: 2,
+//     title: 'Project Beta (e.g., Internal Dashboard)',
+//     company: 'Your Company Name',
+//     description:
+//       'Contributed to a back-end Node.js microservice for handling user authentication and data processing. Built REST APIs consumed by the main application.',
+//     technologies: ['Node.js', 'Express', 'JWT', 'PostgreSQL'],
+//     image: Oraddo
+//   },
+//   {
+//     id: 3,
+//     title: 'Project Gamma (e.g., CMS Feature)',
+//     company: 'Your Company Name',
+//     description:
+//       'Refactored legacy code, improving component reusability and page load performance by 20%. Collaborated with the team to integrate a new CMS feature.',
+//     technologies: ['React', 'JavaScript (ES6+)', 'CSS-in-JS', 'REST APIs'],
+//     image: Oraddo
+//   },
+// ]
+// },
+// {
+//   id: 2,
+//     categoryTitle: 'SaaS & Applicatio',
+//     projects: [
+//       {
+//     id: 21,
+//     title: 'Project Gamma (e.g., CMS Feature)',
+//     company: 'Your Company Name',
+//     description:
+//       'Refactored legacy code, improving component reusability and page load performance by 20%. Collaborated with the team to integrate a new CMS feature.',
+//     technologies: ['React', 'JavaScript (ES6+)', 'CSS-in-JS', 'REST APIs'],
+//     image: Oraddo
+//   },
+//     ]
+// }
+// ];
+
+const projectsData =[
   {
     id: 1,
-    title: 'Project Alpha (e.g., E-commerce Platform)',
-    company: 'Your Company Name',
-    description:
-      'Developed key front-end features for a customer-facing e-commerce site using React, Redux, and React Router. Implemented a secure checkout flow.',
-    technologies: ['React', 'Redux', 'Node.js', 'Express', 'MongoDB'],
-    // image: '/images/project-alpha.jpg' // <-- Add image to public/images folder
+    categoryTitle: 'SaaS & Application Development',
+    projects: [
+      {
+        id: 101,
+        title: 'BPMS (Business Process Management System)',
+        company: 'TriDizi Digital Innovations LLP',
+        description:
+          'Designed and implemented frontend functionalities for HR, Lead Generation, Marketing, and Finance modules. Collaborated on backend API routes and implemented frontend RBAC.',
+        // TODO: Update technologies - I assumed this stack based on your other projects
+        technologies: [
+          'React',
+          'Node.js',
+          'Express',
+          'PostgreSQL',
+          'REST APIs',
+          'RBAC',
+        ],
+        image: Oraddo, // TODO: Update image
+        
+      },
+      {
+        id: 102,
+        title: 'PMS (Property Management System)',
+        company: 'TriDizi Digital Innovations LLP',
+        description:
+          'Implemented responsive frontend modules for Sellers, Buyers, Staff, and Agents. Added features to match Buyers/Sellers, filter data, and incorporated RBAC.',
+        // TODO: Update technologies
+        technologies: ['React','Node.js','Express', 'REST APIs','PostgreSQL', 'RBAC'],
+        image: Oraddo, // TODO: Update image
+      },
+    ],
   },
   {
     id: 2,
-    title: 'Project Beta (e.g., Internal Dashboard)',
-    company: 'Your Company Name',
-    description:
-      'Contributed to a back-end Node.js microservice for handling user authentication and data processing. Built REST APIs consumed by the main application.',
-    technologies: ['Node.js', 'Express', 'JWT', 'PostgreSQL'],
-    // image: '/images/project-beta.jpg'
-  },
-  {
-    id: 3,
-    title: 'Project Gamma (e.g., CMS Feature)',
-    company: 'Your Company Name',
-    description:
-      'Refactored legacy code, improving component reusability and page load performance by 20%. Collaborated with the team to integrate a new CMS feature.',
-    technologies: ['React', 'JavaScript (ES6+)', 'CSS-in-JS', 'REST APIs'],
-    // image: '/images/project-gamma.jpg'
+    categoryTitle: 'Client Websites',
+    projects: [
+      {
+        id: 201,
+        title: 'VSDL Website',
+        company: 'TriDizi Digital Innovations LLP',
+        description:
+          'Created responsive Home and Careers pages, developed a reusable pre-footer component for consistency, and integrated dynamic functionalities.',
+        // TODO: Update technologies - Assumed non-React based on description
+        technologies: ['HTML5', 'CSS3', 'JavaScript (ES6+)', 'Responsive Design'],
+        image: VSDL,
+        link:"https://vsdl.vercel.app/"
+      },
+      {
+        id: 202,
+        title: 'Sapience Minds',
+        company: 'TriDizi Digital Innovations LLP',
+        description:
+          'Built a responsive single-page React site with dynamic components for all main pages. Deployed on Netlify with CI/CD via GitHub.',
+        technologies: ['React.js', 'Netlify', 'CI/CD', 'Git'],
+        image: SapinceMinds, // TODO: Update image
+        link:"https://sapienceminds.com/"
+      },
+      {
+        id: 203,
+        title: 'Vanastalam',
+        company: 'TriDizi Digital Innovations LLP',
+        description:
+          'Built responsive Campaign and Products pages with "Add to Cart" state management. Currently developing the admin-side management screens.',
+        technologies: ['React.js', 'State Management', 'CSS-in-JS'],
+        image: Oraddo, 
+        link:"https://vansthalam.com/"
+      },
+      // {
+      //   id: 204,
+      //   title: 'Global Tech Force Website',
+      //   company: 'TriDizi Digital Innovations LLP',
+      //   description:
+      //     'Developed core sections (Home, About, Contact) using React. Implemented media queries to ensure full responsiveness on mobile for all pages.',
+      //   technologies: ['React', 'CSS Media Queries', 'Responsive Design'],
+      //   image: Oraddo, 
+      // },
+    ],
   },
 ];
 
 const Experience = () => {
+const allCategoryTitles = [
+  ...projectsData.map((cat) => cat.categoryTitle),
+];
+console.log(allCategoryTitles,"allCategoryTitles");
+
+  const [selectedCategory, setSelectedCategory] = useState('SaaS & Application Development');
+const filteredCategories = projectsData.filter((category) => {
+    return category.categoryTitle === selectedCategory;
+  });
+console.log(filteredCategories,"filteredCategories");
+
   return (
     <div className="container">
       <h2 className="section-title">Experience & Projects</h2>
@@ -51,16 +173,29 @@ const Experience = () => {
           back-end development.
         </p>
       </div>
-      
+      <div className="category-toggle-buttons">
+        {allCategoryTitles.map((title) => (
+          <button
+            key={title}
+            // Add 'active' class if the button's title matches the selectedCategory state
+            className={`toggle-btn ${
+              selectedCategory === title ? 'active' : ''
+            }`}
+            onClick={() => setSelectedCategory(title)}
+          >
+            {title}
+          </button>
+        ))}
+      </div>
       <div className="project-grid">
         {/* We map over the data and render a card for each project */}
-        {projectsData.map((project) => (
+        {filteredCategories[0]?.projects.map((project) => (
           <ProjectCard
             key={project.id}
             title={project.title}
             description={project.description}
             technologies={project.technologies}
-            // image={project.image}
+            image={project.image}
           />
         ))}
       </div>
