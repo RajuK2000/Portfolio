@@ -4,6 +4,7 @@ import './Experience.css';
 import Oraddo from "../../assets/projects/oraddoLogin.jpg"
 import VSDL from "../../assets/projects/VSDL.png"
 import SapinceMinds from "../../assets/projects/SapinceMinds.png"
+import Vanstalam from "../../assets/projects/Vanstalam.png"
 
 // --- THIS IS YOUR DATA ---
 // Update this array with your actual project details.
@@ -63,41 +64,7 @@ import SapinceMinds from "../../assets/projects/SapinceMinds.png"
 // ];
 
 const projectsData =[
-  {
-    id: 1,
-    categoryTitle: 'SaaS & Application Development',
-    projects: [
-      {
-        id: 101,
-        title: 'BPMS (Business Process Management System)',
-        company: 'TriDizi Digital Innovations LLP',
-        description:
-          'Designed and implemented frontend functionalities for HR, Lead Generation, Marketing, and Finance modules. Collaborated on backend API routes and implemented frontend RBAC.',
-        // TODO: Update technologies - I assumed this stack based on your other projects
-        technologies: [
-          'React',
-          'Node.js',
-          'Express',
-          'PostgreSQL',
-          'REST APIs',
-          'RBAC',
-        ],
-        image: Oraddo, // TODO: Update image
-        
-      },
-      {
-        id: 102,
-        title: 'PMS (Property Management System)',
-        company: 'TriDizi Digital Innovations LLP',
-        description:
-          'Implemented responsive frontend modules for Sellers, Buyers, Staff, and Agents. Added features to match Buyers/Sellers, filter data, and incorporated RBAC.',
-        // TODO: Update technologies
-        technologies: ['React','Node.js','Express', 'REST APIs','PostgreSQL', 'RBAC'],
-        image: Oraddo, // TODO: Update image
-      },
-    ],
-  },
-  {
+   {
     id: 2,
     categoryTitle: 'Client Websites',
     projects: [
@@ -107,8 +74,7 @@ const projectsData =[
         company: 'TriDizi Digital Innovations LLP',
         description:
           'Created responsive Home and Careers pages, developed a reusable pre-footer component for consistency, and integrated dynamic functionalities.',
-        // TODO: Update technologies - Assumed non-React based on description
-        technologies: ['HTML5', 'CSS3', 'JavaScript (ES6+)', 'Responsive Design'],
+        technologies: ['HTML5', 'CSS3', 'JavaScript (ES6+)','React', 'Vercel', 'Responsive Design', 'Git'],
         image: VSDL,
         link:"https://vsdl.vercel.app/"
       },
@@ -118,18 +84,18 @@ const projectsData =[
         company: 'TriDizi Digital Innovations LLP',
         description:
           'Built a responsive single-page React site with dynamic components for all main pages. Deployed on Netlify with CI/CD via GitHub.',
-        technologies: ['React.js', 'Netlify', 'CI/CD', 'Git'],
-        image: SapinceMinds, // TODO: Update image
+        technologies: ['React.js','Responsive Design', 'Netlify', 'CI/CD', 'Git'],
+        image: SapinceMinds,
         link:"https://sapienceminds.com/"
       },
       {
         id: 203,
-        title: 'Vanastalam',
+        title: 'Vansthalam',
         company: 'TriDizi Digital Innovations LLP',
         description:
           'Built responsive Campaign and Products pages with "Add to Cart" state management. Currently developing the admin-side management screens.',
-        technologies: ['React.js', 'State Management', 'CSS-in-JS'],
-        image: Oraddo, 
+        technologies: ['React.js','Responsive Design', 'Node.js','Netlify', 'CI/CD', 'Git','Render'],
+        image: Vanstalam, 
         link:"https://vansthalam.com/"
       },
       // {
@@ -143,19 +109,50 @@ const projectsData =[
       // },
     ],
   },
+  {
+    id: 1,
+    categoryTitle: 'Application Development',
+    projects: [
+      {
+        id: 101,
+        title: 'BPMS (Business Process Management System)',
+        company: 'TriDizi Digital Innovations LLP',
+        description:
+          'Designed and implemented frontend functionalities for HR, Lead Generation, Marketing, and Finance modules. Collaborated on backend API routes and implemented frontend RBAC.',
+        technologies: [
+          'React',
+          'Node.js',
+          'Express',
+          'PostgreSQL',
+          'REST APIs',
+          'RBAC',
+        ],
+        // image: Oraddo,
+        
+      },
+      {
+        id: 102,
+        title: 'PMS (Property Management System)',
+        company: 'TriDizi Digital Innovations LLP',
+        description:
+          'Implemented responsive frontend modules for Sellers, Buyers, Staff, and Agents. Added features to match Buyers/Sellers, filter data, and incorporated RBAC.',
+        technologies: ['React','Node.js','Express', 'REST APIs','PostgreSQL', 'RBAC'],
+        // image: Oraddo, 
+      },
+    ],
+  },
+ 
 ];
 
 const Experience = () => {
 const allCategoryTitles = [
   ...projectsData.map((cat) => cat.categoryTitle),
 ];
-console.log(allCategoryTitles,"allCategoryTitles");
 
-  const [selectedCategory, setSelectedCategory] = useState('SaaS & Application Development');
+  const [selectedCategory, setSelectedCategory] = useState('Client Websites');
 const filteredCategories = projectsData.filter((category) => {
     return category.categoryTitle === selectedCategory;
   });
-console.log(filteredCategories,"filteredCategories");
 
   return (
     <div className="container">
@@ -177,7 +174,6 @@ console.log(filteredCategories,"filteredCategories");
         {allCategoryTitles.map((title) => (
           <button
             key={title}
-            // Add 'active' class if the button's title matches the selectedCategory state
             className={`toggle-btn ${
               selectedCategory === title ? 'active' : ''
             }`}
@@ -196,6 +192,7 @@ console.log(filteredCategories,"filteredCategories");
             description={project.description}
             technologies={project.technologies}
             image={project.image}
+            link={project.link}
           />
         ))}
       </div>

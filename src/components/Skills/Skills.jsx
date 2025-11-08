@@ -3,9 +3,31 @@ import './Skills.css';
 
 // Add or remove skills as needed
 const skillData = {
-  frontend: ['HTML5', 'CSS3', 'JavaScript (ES6+)', 'React', 'Redux', 'Responsive Design'],
-  backend: ['Node.js', 'Express', 'REST APIs', 'MongoDB', 'PostgreSQL', 'JWT'],
-  business: ['Project Management', 'Agile Methodologies', 'Market Analysis', 'Business Strategy'],
+  frontend: [
+    'HTML5',
+    'CSS3',
+    'JavaScript (ES6+)',
+    'React',
+    'Redux',
+    'Responsive Design',
+    'Tailwind CSS' // <-- Added
+  ],
+  backend: [
+    'Node.js',
+    'Express',
+    'REST APIs',
+    'PostgreSQL',
+    'JWT'
+  ],
+  versionControl: [ // <-- New Category
+    'Git',
+    'GitHub'
+  ],
+  deployment: [ // <-- New Category
+    'Vercel',
+    'Netlify',
+    'Render'
+  ]
 };
 
 const Skills = () => {
@@ -26,9 +48,15 @@ const Skills = () => {
           </ul>
         </div>
         <div className="skill-category">
-          <h3>Business & Other</h3>
+          <h3>Version Control</h3>
           <ul className="skill-list">
-            {skillData.business.map((skill, i) => <li key={i}>{skill}</li>)}
+            {skillData.versionControl.map((skill, i) => <li key={i}>{skill}</li>)}
+          </ul>
+        </div>
+        <div className="skill-category">
+          <h3>Deployment</h3>
+          <ul className="skill-list">
+            {skillData.deployment.map((skill, i) => <li key={i}>{skill}</li>)}
           </ul>
         </div>
       </div>
